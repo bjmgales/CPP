@@ -2,11 +2,15 @@ NAME	:= phonebook
 
 
 CC := c++
-CFLAGS := -Wall -Wextra -Werror -g -fsanitize=address -std=c++98
+CFLAGS := -Wall -Wextra -Werror
 AR := ar
 RM := rm -f
 MKDIR := mkdir -m 777 -p
 ECHO := echo
+
+# ********************************* H E A D S *********************************
+
+HFLAGS				:=	-I include\
 
 # ********************************* F O N T S *********************************
 
@@ -27,18 +31,20 @@ WHITE				:=	"\033[37m"
 
 # ********************************* N A M E S *********************************
 
-SRCS := $(wildcard *.cpp)
-OBJS := $(patsubst %.cpp,bin/%.o,$(SRCS))
+SRCS := $(wildcard src/**/*.cpp) $(wildcard src/*.cpp)
+OBJS := $(patsubst src/%.cpp,bin/%.o,$(SRCS))
+
+OBJ_DIRS := $(sort $(dir $(OBJS)))
 
 all: $(NAME)
 
-bin/%.o: %.cpp | bin
+bin/%.o: src/%.cpp | bin
 	@echo \
 	$(WHITE)$(ITALIC)"Compiling $<"$(EOC)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(HFLAGS) -c $< -o $@
 
 bin:
-	@$(MKDIR) $@
+	@$(MKDIR)  $(OBJ_DIRS)
 
 $(NAME):			$(OBJS)
 					@$(CC) $(CFLAGS) $^ -o $@
