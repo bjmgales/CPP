@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 12:13:22 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/13 12:34:02 by bgales           ###   ########.fr       */
+/*   Updated: 2023/05/14 12:36:56 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,25 @@ std::string Contact::get_info(std::string name)
 
 void	Contact::set_info()
 {
-	std::cout << "\nEnter first name : " << std::endl;
-	std::getline(std::cin >> std::ws, _first_name);
-	std::cout << "Enter last name : " << std::endl;
-	std::getline(std::cin >> std::ws, _last_name);
-	std::cout << "Enter _nickname : " << std::endl;
-	std::getline(std::cin >> std::ws, _nickname);
-	std::cout << "Enter phone number : " << std::endl;
-	std::getline(std::cin >> std::ws, _phone_number);
-	std::cout << "Enter darkest secret : " << std::endl;
-	std::getline(std::cin >> std::ws, _secret);
-
+		std::cout << "\nEnter first name : " << std::endl;
+		std::getline(std::cin >> std::ws, _first_name);
+		if (std::cin.eof())
+			exit (0) ;
+		std::cout << "Enter last name : " << std::endl;
+		std::getline(std::cin >> std::ws, _last_name);
+		if (std::cin.eof())
+			exit (0) ;
+		std::cout << "Enter _nickname : " << std::endl;
+		std::getline(std::cin >> std::ws, _nickname);
+		if (std::cin.eof())
+			exit (0) ;
+		std::cout << "Enter phone number : " << std::endl;
+		std::getline(std::cin >> std::ws, _phone_number);
+		if (std::cin.eof())
+			exit (0) ;
+		std::cout << "Enter darkest secret : " << std::endl;
+		std::getline(std::cin >> std::ws, _secret);
+		if (std::cin.eof())
+			exit (0) ;
 	return;
 }

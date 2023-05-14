@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 12:18:25 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/13 12:39:38 by bgales           ###   ########.fr       */
+/*   Updated: 2023/05/14 12:38:14 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ int	Phonebook::display_one(std::string input)
 	std::cout << "DARKEST SECRET :" << list[index].get_info("_secret") << std::endl;
 	std::cout << "\n" << "Waiting for input to continue...\n";
 	 while (std::cin.get() != '\n')
-	 	;
+	 {
+	 	if (std::cin.eof())
+			exit (0) ;
+	 }
 	std::cout << "\n\nBACK TO SEARCH MENU\n" << std::endl;
 	display_all();
 	return (0);
@@ -43,6 +46,8 @@ void	Phonebook::ask_index()
 	while (1)
 	{
 		std::getline(std::cin >> std::ws,  input);
+		if (std::cin.eof())
+			exit (0) ;
 		if (input == "RETURN")
 			break;
 		else if (display_one(input))

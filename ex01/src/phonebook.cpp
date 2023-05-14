@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:55:44 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/13 12:33:43 by bgales           ###   ########.fr       */
+/*   Updated: 2023/05/14 12:33:22 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ int main(void)
 	while (1)
 	{
 		std::cout << "\nADD or SEARCH a contact, type EXIT to quit." << std::endl;
-		std::cin >> input;
+		std::getline(std::cin >> std::ws, input);
+		if (std::cin.eof())
+			break ;
 		if (input == "ADD")
 		{
 			if (i + 1 == 8)

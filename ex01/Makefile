@@ -2,7 +2,7 @@ NAME	:= phonebook
 
 
 CC := c++
-CFLAGS := -Wall -Wextra -Werror
+CFLAGS := -Wall -Wextra -Werror -g -fsanitize=address
 AR := ar
 RM := rm -f
 MKDIR := mkdir -m 777 -p
