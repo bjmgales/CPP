@@ -17,46 +17,146 @@
 // ************************************************************************** //
 #include <ctime>
 #include <iostream>
-
+/**
+ * @class Account
+ * @brief Represents a bank account.
+ *
+ * The Account class manages individual bank accounts and provides functions to interact with them.
+ */
 class Account {
+private:
+    static int _nbAccounts;              // The total number of accounts.
+    static int _totalAmount;             // The total amount of money in all accounts.
+    static int _totalNbDeposits;         // The total number of deposits made across all accounts.
+    static int _totalNbWithdrawals;      // The total number of withdrawals made across all accounts.
+    int 		_accountIndex;           // The index of the current account.
+    int 		_amount;                 // The current amount of money in the account.
+    int			_nbDeposits;             // The number of deposits made for the account.
+    int 		_nbWithdrawals;          // The number of withdrawals made for the account.
+    /**
+     * @brief Display the timestamp.
+     *
+     * This function displays the current timestamp in the format "[YYYYMMDD_HHMMSS]".
+     */
+    static void _displayTimestamp();
 
 public:
 
 	typedef Account		t;
+    /**
+     * @brief Constructor for the Account class.
+     *
+     * Creates a new account with the specified initial deposit amount.
+     * It increments the account index, sets the amount, and updates the total amount and number of accounts.
+     *
+     * @param initial_deposit The initial deposit amount for the account.
+     */
+    Account(int initial_deposit);
 
-	static int	getNbAccounts( void );
-	static int	getTotalAmount( void );
-	static int	getNbDeposits( void );
-	static int	getNbWithdrawals( void );
-	static void	displayAccountsInfos( void );
+    /**
+     * @brief Destructor for the Account class.
+     *
+     * Displays the account details before closing the account.
+     */
+    ~Account();
 
-	Account( int initial_deposit );
-	~Account( void );
+    /**
+     * @brief Get the total number of accounts.
+     *
+     * This function returns the total number of accounts created.
+     *
+     * @return The total number of accounts.
+     */
+    static int getNbAccounts();
 
-	void	makeDeposit( int deposit );
-	bool	makeWithdrawal( int withdrawal );
-	int		checkAmount( void ) const;
-	void	displayStatus( void ) const;
+    /**
+     * @brief Get the total amount of money in all accounts.
+     *
+     * This function returns the total amount of money present in all the accounts.
+     *
+     * @return The total amount of money in all accounts.
+     */
+    static int getTotalAmount();
 
-private:
+    /**
+     * @brief Get the total number of deposits made across all accounts.
+     *
+     * This function returns the total number of deposits made across all the accounts.
+     *
+     * @return The total number of deposits made.
+     */
+    static int getNbDeposits();
 
-	static int	_nbAccounts;
-	static int	_totalAmount;
-	static int	_totalNbDeposits;
-	static int	_totalNbWithdrawals;
+    /**
+     * @brief Get the total number of withdrawals made across all accounts.
+     *
+     * This function returns the total number of withdrawals made across all the accounts.
+     *
+     * @return The total number of withdrawals made.
+     */
+    static int getNbWithdrawals();
 
-	static void	_displayTimestamp( void );
 
-	int				_accountIndex;
-	int				_amount;
-	int				_nbDeposits;
-	int				_nbWithdrawals;
+    /**
+     * @brief Display information about all accounts.
+     *
+     * This function displays the total number of accounts, the total amount of money in all accounts,
+     * the total number of deposits made, and the total number of withdrawals made.
+     */
+    static void displayAccountsInfos();
 
-	Account( void );
+    /**
+     * @brief Make a deposit to the account.
+     *
+     * This function makes a deposit to the account by increasing the amount.
+     * It updates the total amount, the number of deposits, and displays the deposit details.
+     *
+     * @param deposit The amount to deposit.
+     */
+    void makeDeposit(int deposit);
 
+	/**
+ 	* @brief Display the status of the account.
+ 	*
+ 	* This function displays the current status of the account, including its index, amount,
+ 	* the number of deposits made, and the number of withdrawals made.
+ 	* It uses the `_displayTimestamp` function to print the current timestamp before displaying the status.
+ 	*/
+	void displayStatus() const;
+
+	/**
+ 	* @brief Check the current amount of the account.
+ 	*
+ 	* This function returns the current amount stored in the account.
+ 	*
+ 	* @return The current amount of the account as an integer.
+ 	*/
+	int checkAmount() const;
+
+	/**
+ 	* @brief Make a withdrawal from the account.
+	 	* This function allows withdrawing a specified amount from the account balance.
+	 	* It checks if the withdrawal amount is greater than the current account balance.
+ 	* If the withdrawal amount exceeds the account balance, the withdrawal is refused
+ 	* and a corresponding message is printed. Otherwise, the withdrawal is processed.
+ 	* The account balance and withdrawal statistics are updated, and a success message
+	 * including the withdrawn amount, new account balance, and number of withdrawals
+ 	* is printed.
+ 	*
+ 	* @param withdrawal The amount to withdraw from the account.
+ 	* @return True if the withdrawal is successful, False if the withdrawal is refused.
+ 	*/
+	bool makeWithdrawal(int withdrawal);
 };
 
-
+ /**
+     * @brief Display the amount as "p_amount".
+     *
+     * This function prints the provided amount preceded by the string "p_amount:".
+     *
+     * @param p_amount The amount to display.
+     */
+    void displayP_amount(int p_amount);
 
 // ************************************************************************** //
 // vim: set ts=4 sw=4 tw=80 noexpandtab:                                      //
