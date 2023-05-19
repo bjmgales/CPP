@@ -2,7 +2,7 @@ NAME	:=  Harl-2.0
 
 
 CC := c++
-CFLAGS := -Wall -Wextra -Werror -std=c++98
+CFLAGS := -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 AR := ar
 RM := rm -f
 MKDIR := mkdir -m 777 -p
