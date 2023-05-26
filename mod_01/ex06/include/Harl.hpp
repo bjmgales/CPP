@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:23:06 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/19 12:39:05 by bgales           ###   ########.fr       */
+/*   Updated: 2023/05/26 18:12:30 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,44 @@
 
 #include <iostream>
 
-class Harl
-{
-	private:
-		void	debug();
-		void	info();
-		void	warning();
-		void	error();
+/**
+ * @file Harl.hpp
+ *
+ * @brief Defines the Harl class and related functions.
+ */
 
-	public:
-		Harl(/* args */);
-		~Harl();
-		void (Harl::*functptr[5])();
-		void	complain(std::string level);
+/**
+ * @class Harl
+ *
+ * @brief Represents a Harl object that can output different types of messages.
+ */
+class Harl {
+private:
+    void debug(); /**< Outputs a debug message. */
+    void info(); /**< Outputs an info message. */
+    void warning(); /**< Outputs a warning message. */
+    void error(); /**< Outputs an error message. */
+
+public:
+    /**
+     * @brief Default constructor for the Harl class.
+     */
+    Harl();
+
+    /**
+     * @brief Destructor for the Harl class.
+     */
+    ~Harl();
+
+    /**
+     * @brief Array of function pointers to different message functions.
+     */
+    void (Harl::*functptr[4])();
+
+    /**
+     * @brief Outputs messages of the specified and above levels.
+     *
+     * @param level The level of the message ("DEBUG", "INFO", "WARNING", "ERROR").
+     */
+    void complain(std::string level);
 };
-

@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:21:29 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/26 13:05:11 by bgales           ###   ########.fr       */
+/*   Updated: 2023/05/26 18:49:02 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,33 +30,107 @@
 #define BOLDCYAN    "\033[1m\033[36m"      /* Bold Cyan */
 #define BOLDWHITE   "\033[1m\033[37m"      /* Bold White */
 
-class ClapTrap{
-	public:
-		ClapTrap();
-		ClapTrap(std::string name);
-		ClapTrap(const ClapTrap&);
-		ClapTrap& operator = (const ClapTrap &other);
-		~ClapTrap();
+/**
+ * @class ClapTrap
+ * @brief Represents a generic ClapTrap character.
+ */
+class ClapTrap {
+public:
+    /**
+     * @brief Default constructor for ClapTrap.
+     */
+    ClapTrap();
 
-		void			attack(const std::string &target);
-		void			takeDamage(unsigned int amount);
-		void			beRepaired(unsigned int amount);
+    /**
+     * @brief Constructor for ClapTrap with a given name.
+     * @param name The name of the ClapTrap.
+     */
+    ClapTrap(std::string name);
 
-		bool			energyCheck();
-		bool			healthCheck();
+    /**
+     * @brief Copy constructor for ClapTrap.
+     * @param other The ClapTrap object to be copied.
+     */
+    ClapTrap(const ClapTrap& other);
 
-		unsigned int	getInfo(std::string info) const;
-		void			setInfo(unsigned int energyPoints,
-								unsigned int hitPoints,
-								unsigned int attackDamage);
+    /**
+     * @brief Destructor for ClapTrap.
+     */
+    ~ClapTrap();
 
-		void			setName(std::string name);
-		std::string		getName() const;
+    /**
+     * @brief Assignment operator for ClapTrap.
+     * @param other The ClapTrap object to be assigned.
+     * @return Reference to the assigned ClapTrap object.
+     */
+    ClapTrap& operator=(const ClapTrap& other);
 
-		void			displayInfo();
-	private:
-		std::string _name;
-		unsigned int _hitPoints;
-		unsigned int _energyPoints;
-		unsigned int _attackDamage;
+    /**
+     * @brief Attacks a target.
+     * @param target The target to be attacked.
+     */
+    void attack(const std::string& target);
+
+    /**
+     * @brief Takes damage.
+     * @param amount The amount of damage taken.
+     */
+    void takeDamage(unsigned int amount);
+
+    /**
+     * @brief Repairs the ClapTrap.
+     * @param amount The amount of health restored.
+     */
+    void beRepaired(unsigned int amount);
+
+    /**
+     * @brief Checks if the ClapTrap has enough energy.
+     * @return True if the ClapTrap has enough energy, false otherwise.
+     */
+    bool energyCheck();
+
+    /**
+     * @brief Checks if the ClapTrap has health remaining.
+     * @return True if the ClapTrap has health remaining, false otherwise.
+     */
+    bool healthCheck();
+
+    /**
+     * @brief Gets information about the ClapTrap.
+     * @param info The type of information to retrieve ("health", "energy", or "attack").
+     * @return The requested information.
+     */
+    unsigned int getInfo(std::string info) const;
+
+    /**
+     * @brief Sets the energy, health, and attack values for the ClapTrap.
+     * @param energyPoints The energy points value to set.
+     * @param hitPoints The hit points value to set.
+     * @param attackDamage The attack damage value to set.
+     */
+    void setInfo(unsigned int energyPoints, unsigned int hitPoints, unsigned int attackDamage);
+
+    /**
+     * @brief Sets the name of the ClapTrap.
+     * @param name The name to set.
+     */
+    void setName(std::string name);
+
+    /**
+     * @brief Gets the name of the ClapTrap.
+     * @return The name of the ClapTrap.
+     */
+    std::string getName() const;
+
+    /**
+     * @brief Displays information about the ClapTrap.
+     */
+    void displayInfo();
+
+private:
+    std::string _name;          /**< The name of the ClapTrap. */
+    unsigned int _hitPoints;    /**< The current hit points of the ClapTrap. */
+    unsigned int _energyPoints; /**< The current energy points of the ClapTrap. */
+    unsigned int _attackDamage; /**< The attack damage of the ClapTrap. */
 };
+

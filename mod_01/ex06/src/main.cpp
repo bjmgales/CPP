@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 11:13:39 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/19 12:47:13 by bgales           ###   ########.fr       */
+/*   Updated: 2023/05/26 18:12:57 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,4 @@ int main(int argc, char **argv)
 	}
 	std::string level = argv[1];
 	toto.complain(level);
-
-
 }

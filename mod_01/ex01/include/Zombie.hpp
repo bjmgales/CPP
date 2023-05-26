@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:42:57 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/19 14:25:15 by bgales           ###   ########.fr       */
+/*   Updated: 2023/05/26 17:59:00 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,61 @@
 #define BOLDCYAN    "\033[1m\033[36m"      /* Bold Cyan */
 #define BOLDWHITE   "\033[1m\033[37m"      /* Bold White */
 
-class Zombie
-{
+/**
+ * @file Zombie.hpp
+ * @brief Contains the declaration of the Zombie class.
+ */
+
+#include <iostream>
+#include <string>
+
+/**
+ * @class Zombie
+ * @brief Represents a zombie entity with a name and behavior.
+ */
+class Zombie {
 private:
-	std::string	_name;
+    std::string _name; /* The name of the zombie. */
+
 public:
-	Zombie();
-	Zombie(std::string name);
-	~Zombie();
-	void	announce();
-	void	set_name(std::string name);
+    /**
+     * @brief Default constructor for the Zombie class.
+     */
+    Zombie();
+
+    /**
+     * @brief Parameterized constructor for the Zombie class.
+     * @param name The name of the zombie.
+     */
+    Zombie(std::string name);
+
+    /**
+     * @brief Destructor for the Zombie class.
+     */
+    ~Zombie();
+
+    /**
+     * @brief Announces the zombie by printing its name and sound.
+     */
+    void announce();
+
+    /**
+     * @brief Sets the name of the zombie.
+     * @param name The name of the zombie.
+     */
+    void set_name(std::string name);
 };
 
-Zombie*	zombieHorde(int N, std::string name);
+/**
+ * @brief Creates an array of Zombie objects on the heap.
+ * @param N The number of zombies to create.
+ * @param name The base name for the zombies.
+ * @return Pointer to the first Zombie object in the created array.
+ */
+Zombie* zombieHorde(int N, std::string name);
+
+/**
+ * @brief Entry point of the program.
+ * @return Exit status of the program.
+ */
+int main();

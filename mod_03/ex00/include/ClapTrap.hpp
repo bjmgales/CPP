@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:21:29 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/25 14:45:29 by bgales           ###   ########.fr       */
+/*   Updated: 2023/05/26 18:41:01 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,24 +30,112 @@
 #define BOLDCYAN    "\033[1m\033[36m"      /* Bold Cyan */
 #define BOLDWHITE   "\033[1m\033[37m"      /* Bold White */
 
-class ClapTrap{
-	public:
-		ClapTrap();
-		ClapTrap(std::string name);
-		ClapTrap(const ClapTrap&);
-		ClapTrap& operator = (const ClapTrap &other);
-		~ClapTrap();
+/**
+ * @file ClapTrap.hpp
+ *
+ * @brief Defines the ClapTrap class and related functions.
+ */
 
-		void			attack(const std::string &target);
-		void			takeDamage(unsigned int amount);
-		void			beRepaired(unsigned int amount);
-		bool			energyCheck();
-		bool			healthCheck();
-		unsigned int	getInfo(std::string info);
-		std::string		getName();
-	private:
-		std::string _name;
-		unsigned int _hitPoints;
-		unsigned int _energyPoints;
-		unsigned int _attackDamage;
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
+
+#include <iostream>
+#include <string>
+
+/**
+ * @class ClapTrap
+ *
+ * @brief Represents a ClapTrap character.
+ */
+class ClapTrap {
+public:
+    /**
+     * @brief Default constructor for ClapTrap.
+     */
+    ClapTrap();
+
+    /**
+     * @brief Constructor for ClapTrap with a given name.
+     *
+     * @param name The name of the ClapTrap.
+     */
+    ClapTrap(std::string name);
+
+    /**
+     * @brief Copy constructor for ClapTrap.
+     *
+     * @param other The ClapTrap to be copied.
+     */
+    ClapTrap(const ClapTrap& other);
+
+    /**
+     * @brief Assignment operator for ClapTrap.
+     *
+     * @param other The ClapTrap to be assigned.
+     * @return Reference to the ClapTrap after assignment.
+     */
+    ClapTrap& operator=(const ClapTrap& other);
+
+    /**
+     * @brief Destructor for ClapTrap.
+     */
+    ~ClapTrap();
+
+    /**
+     * @brief Attacks a target.
+     *
+     * @param target The target to be attacked.
+     */
+    void attack(const std::string& target);
+
+    /**
+     * @brief Takes damage.
+     *
+     * @param amount The amount of damage taken.
+     */
+    void takeDamage(unsigned int amount);
+
+    /**
+     * @brief Repairs the ClapTrap.
+     *
+     * @param amount The amount of health restored.
+     */
+    void beRepaired(unsigned int amount);
+
+    /**
+     * @brief Checks if the ClapTrap has enough energy to perform an action.
+     *
+     * @return True if the ClapTrap has enough energy, false otherwise.
+     */
+    bool energyCheck();
+
+    /**
+     * @brief Checks if the ClapTrap has any health left.
+     *
+     * @return True if the ClapTrap has health remaining, false otherwise.
+     */
+    bool healthCheck();
+
+    /**
+     * @brief Gets information about the ClapTrap.
+     *
+     * @param info The information to retrieve ("health", "energy", or "attack").
+     * @return The requested information.
+     */
+    unsigned int getInfo(std::string info);
+
+    /**
+     * @brief Gets the name of the ClapTrap.
+     *
+     * @return The name of the ClapTrap.
+     */
+    std::string getName();
+
+private:
+    std::string _name;          /*The name of the ClapTrap. */
+    unsigned int _hitPoints;    /*The health points of the ClapTrap. */
+    unsigned int _energyPoints; /*The energy points of the ClapTrap. */
+    unsigned int _attackDamage; /*The attack damage of the ClapTrap. */
 };
+
+#endif /* CLAPTRAP_HPP */

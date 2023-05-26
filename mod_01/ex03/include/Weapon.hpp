@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 19:01:48 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/19 15:06:39 by bgales           ###   ########.fr       */
+/*   Updated: 2023/05/26 18:06:44 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,42 @@
 #define BOLDCYAN    "\033[1m\033[36m"      /* Bold Cyan */
 #define BOLDWHITE   "\033[1m\033[37m"      /* Bold White */
 
-class Weapon
-{
+/**
+ * @class Weapon
+ *
+ * @brief Represents a weapon with a specific type.
+ */
+class Weapon {
 private:
-	std::string	_type;
+    std::string _type; /**< The type of the weapon */
+
 public:
-	Weapon(std::string type);
-	~Weapon();
-	std::string getType();
-	void setType(std::string type);
+    /**
+     * @brief Parameterized constructor for the Weapon class.
+     *
+     * @param type The type of the weapon.
+     */
+    Weapon(std::string type);
+
+    /**
+     * @brief Destructor for the Weapon class.
+     */
+    ~Weapon();
+
+    /**
+     * @brief Returns the type of the weapon.
+     *
+     * @return The type of the weapon.
+     */
+    std::string getType();
+
+    /**
+     * @brief Sets the type of the weapon.
+     *
+     * @param type The type to set for the weapon.
+     */
+    void setType(std::string type);
 };
 
 #include "HumanA.hpp"
 #include "HumanB.hpp"
-

@@ -12,16 +12,53 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap{
-	public:
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap&);
-		using ClapTrap::operator=;
-		ScavTrap& operator = (const ScavTrap &other);
+/**
+ * @file ScavTrap.hpp
+ * @brief Defines the ScavTrap class, derived from ClapTrap.
+ *
 
-		~ScavTrap();
+ * @class ScavTrap
+ * @brief Represents a ScavTrap character, derived from ClapTrap.
+ */
+class ScavTrap : public ClapTrap {
+public:
+    /**
+     * @brief Default constructor for ScavTrap.
+     */
+    ScavTrap();
 
-		void	guardGate();
-		void	attack(const std::string& target);
+    /**
+     * @brief Constructor for ScavTrap with a given name.
+     * @param name The name of the ScavTrap.
+     */
+    ScavTrap(std::string name);
+
+    /**
+     * @brief Copy constructor for ScavTrap.
+     * @param other The ScavTrap object to be copied.
+     */
+    ScavTrap(const ScavTrap& other);
+
+    /**
+     * @brief Destructor for ScavTrap.
+     */
+    ~ScavTrap();
+
+    /**
+     * @brief Assignment operator for ScavTrap.
+     * @param other The ScavTrap object to be assigned.
+     * @return Reference to the assigned ScavTrap object.
+     */
+    ScavTrap& operator=(const ScavTrap& other);
+
+    /**
+     * @brief Enters Gate Keeper mode.
+     */
+    void guardGate();
+
+    /**
+     * @brief Attacks a target.
+     * @param target The target to be attacked.
+     */
+    void attack(const std::string& target);
 };
