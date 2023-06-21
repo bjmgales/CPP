@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 12:18:25 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/14 12:38:14 by bgales           ###   ########.fr       */
+/*   Updated: 2023/06/21 11:16:14 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	Phonebook::display_one(std::string input)
 	std::cout << "NICKNAME :" << list[index].get_info("_nickname") << std::endl;
 	std::cout << "PHONE NUMBER :" << list[index].get_info("_phone_number") << std::endl;
 	std::cout << "DARKEST SECRET :" << list[index].get_info("_secret") << std::endl;
-	std::cout << "\n" << "Waiting for input to continue...\n";
+	std::cout << "\n" << "Press ENTER to continue...\n";
 	 while (std::cin.get() != '\n')
 	 {
 	 	if (std::cin.eof())
@@ -41,7 +41,7 @@ void	Phonebook::ask_index()
 {
 	std::string	input;
 
-	std::cout << "\n\nPlease type index of the contact to be displayed, or RETURN to get back to main menu."
+	std::cout << "\n\nPlease type index of the contact to be displayed, or type \"RETURN\" to get back to main menu."
 		 << std::endl;
 	while (1)
 	{
@@ -51,7 +51,7 @@ void	Phonebook::ask_index()
 		if (input == "RETURN")
 			break;
 		else if (display_one(input))
-			std::cout << "Please enter a valid contact index, or RETURN to get back to the main menu."
+			std::cout << "Please enter a valid contact index, or type \"RETURN\" to get back to the main menu."
 				 << std::endl;
 		else
 			break;
