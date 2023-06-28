@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 11:13:39 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/19 12:07:16 by bgales           ###   ########.fr       */
+/*   Updated: 2023/06/28 11:15:40 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main()
 							/*	 DEBUG	*/
 /***************************************************************************/
 
-	std::cout << "DEBUG message incoming:\n" << std::endl;
+	std::cout << RED << "DEBUG message incoming:\n" << RESET << std::endl;
 	sleep(1);
 	toto.complain("DEBUG");
 	sleep(1);
@@ -30,7 +30,7 @@ int main()
 							/*	 INFO	*/
 /***************************************************************************/
 
-	std::cout << "INFO message incoming:\n" << std::endl;
+	std::cout << RED << "INFO message incoming:\n" << RESET << std::endl;
 	sleep(1);
 	toto.complain("INFO");
 	sleep(2);
@@ -38,7 +38,7 @@ int main()
 							/*	WARNING	*/
 /***************************************************************************/
 
-	std::cout << "WARNING message incoming:\n" << std::endl;
+	std::cout << RED << "WARNING message incoming:\n" << RESET << std::endl;
 	sleep(1);
 	toto.complain("WARNING");
 	sleep(2);
@@ -46,7 +46,7 @@ int main()
 							/*	 ERROR	*/
 /***************************************************************************/
 
-	std::cout << "ERROR message incoming:\n" << std::endl;
+	std::cout << RED << "ERROR message incoming:\n" << RESET << std::endl;
 	sleep(1);
 	toto.complain("ERROR");
 	sleep(3);
@@ -54,19 +54,19 @@ int main()
 							/*	 SH*T CASE	*/
 /***************************************************************************/
 
-	std::cout << "no message incoming:\n" << std::endl;
+	std::cout << RED << "no message incoming:\n" << RESET << std::endl;
 	sleep(1);
 	toto.complain("Wrong_input");
 	sleep(1);
 
 
-	std::cout << "still no message incoming:\n" << std::endl;
+	std::cout << RED << "still no message incoming:\n" << RESET <<std::endl;
 	sleep(1);
 	toto.complain("");
 	sleep(1);
 
 
-	std::cout << "no... still not.\n" << std::endl;
+	std::cout << RED << "no... still not.\n" << RESET << std::endl;
 	sleep(1);
 	toto.complain("warning");
 	sleep(1);
