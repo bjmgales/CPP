@@ -17,12 +17,14 @@
 // ************************************************************************** //
 #include <ctime>
 #include <iostream>
+
 /**
  * @class Account
  * @brief Represents a bank account.
  *
  * The Account class manages individual bank accounts and provides functions to interact with them.
  */
+class Account{
 private:
     static int _nbAccounts;              // The total number of accounts.
     static int _totalAmount;             // The total amount of money in all accounts.
