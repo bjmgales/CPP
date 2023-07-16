@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 11:58:13 by bgales            #+#    #+#             */
-/*   Updated: 2023/06/05 14:16:33 by bgales           ###   ########.fr       */
+/*   Updated: 2023/07/12 12:22:16 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(){
 	Form *newForm;
 	Bureaucrat president("President", 1);
 
-	newForm = slave.makeForm("wrong input", "toto");
+	newForm = slave.makeForm("WRONG INPUT", "toto");
 	newForm = slave.makeForm("robotomy request", "Mark Zuckerberg");
 
 

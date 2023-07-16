@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 12:08:25 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/29 12:11:01 by bgales           ###   ########.fr       */
+/*   Updated: 2023/07/10 13:38:49 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,8 @@ Dog::Dog(const Dog &other):Animal(other){
 
 Dog& Dog::operator=(const Dog &other){
 	if (this != &other){
-		_brain->ideas[0] = "*thinks* Woof";
-		other._brain->ideas[0] = "*thinks* slurp";
 		Animal::operator=(other);
 		*_brain = *other._brain;
-		std::cout << _brain->ideas[0] << std::endl;
 	}
 	std::cout << BR << "Dog" << R << " assignment operator called" << std::endl;
 	return (*this);

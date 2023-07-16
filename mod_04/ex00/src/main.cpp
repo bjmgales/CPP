@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 13:11:09 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/29 09:38:09 by bgales           ###   ########.fr       */
+/*   Updated: 2023/07/10 13:03:14 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int main()
 	meta->makeSound();
 	weirdCat->makeSound();
 
-	// const WrongCat CatWoman;
-	// CatWoman.makeSound();
+	delete (meta);
+	delete (dog);
+	delete (cat);
+	delete (weirdCat);
 }

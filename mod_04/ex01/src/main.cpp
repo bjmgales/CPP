@@ -6,14 +6,15 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 13:11:09 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/29 14:12:38 by bgales           ###   ########.fr       */
+/*   Updated: 2023/07/10 13:22:02 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "WrongAnimal.hpp"
 
-void test(){
+int main()
+{
 	const Animal *animals[10];
 
 	for (int i = 0; i < 6; i++)
@@ -26,12 +27,8 @@ void test(){
 
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
+
+
 	delete j;
 	delete i;
-}
-
-int main()
-{
-	test();
-	system("leaks Brain");
 }

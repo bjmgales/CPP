@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 12:08:37 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/29 10:35:37 by bgales           ###   ########.fr       */
+/*   Updated: 2023/07/10 12:32:40 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 Cat::Cat():Animal("Cat"){
 	std::cout << BR << "Cat" << R << " default constructor called." << std::endl;
-	new Brain;
 }
 
 Cat::~Cat(){

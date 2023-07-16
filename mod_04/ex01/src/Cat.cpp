@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 12:08:37 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/29 13:08:06 by bgales           ###   ########.fr       */
+/*   Updated: 2023/07/10 13:38:45 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,9 @@ Cat::Cat(const Cat &other):Animal(other){
 
 Cat& Cat::operator=(const Cat &other){
 	if (this != &other){
-		_brain->ideas[0] = "*thinks* rrrr";
-		other._brain->ideas[0] = "*thinks* meow";
 	std::cout << BR << "Cat" << R << " assignment operator called" << std::endl;
 		Animal::operator=(other);
 		*_brain = *other._brain;
-		std::cout << _brain->ideas[0] << std::endl;
 	}
 	return (*this);
 }

@@ -50,5 +50,5 @@ void		WrongAnimal::setType(std::string type){
 /****************************MEMBERS FUNCTIONS**********************************/
 
 void		WrongAnimal::makeSound() const{
-	std::cout << "Wrong sound goes BRRRR" << std::endl;
+	std::cout << "WrongAnimal sound goes BRRRR" << std::endl;
 }

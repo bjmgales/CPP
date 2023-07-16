@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 19:45:13 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/29 14:32:49 by bgales           ###   ########.fr       */
+/*   Updated: 2023/07/10 13:46:03 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ public:
     /**
      * Make a sound specific to the animal.
      */
-    void virtual makeSound() const;
+    void virtual makeSound() const = 0;
 };
 
 

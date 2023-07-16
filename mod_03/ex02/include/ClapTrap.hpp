@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:21:29 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/26 18:49:02 by bgales           ###   ########.fr       */
+/*   Updated: 2023/07/08 10:15:55 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ public:
      */
     void displayInfo();
 
-private:
+protected:
     std::string _name;          /**< The name of the ClapTrap. */
     unsigned int _hitPoints;    /**< The current hit points of the ClapTrap. */
     unsigned int _energyPoints; /**< The current energy points of the ClapTrap. */

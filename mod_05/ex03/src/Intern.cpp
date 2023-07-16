@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 12:31:53 by bgales            #+#    #+#             */
-/*   Updated: 2023/06/06 11:20:25 by bgales           ###   ########.fr       */
+/*   Updated: 2023/07/12 12:25:36 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,13 @@ Form * Intern::makeForm(std::string formType, std::string target){
 	functptr[0] = &makeRobotomy;
 	functptr[1] = &makePardon;
 	functptr[2] = &makeShrubbery;
-
+	for (int i = 0; formType[i]; i++)
+		formType[i] = tolower(formType[i]);
 	for (int i = 0; levels[i] != NULL; i++){
 		if (formType == levels[i])
 			return (functptr[i](target));
 	}
-	std::cout << BR <<  "Error: " << formType
-		<< " is not a valid formulary type." << R << std::endl;
+	std::cout << BR <<  "Error: \"" << formType
+		<< "\" is not a valid formulary type." << R << std::endl;
 	return (NULL);
 }

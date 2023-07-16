@@ -6,13 +6,12 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 19:45:13 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/29 10:56:23 by bgales           ###   ########.fr       */
+/*   Updated: 2023/07/10 12:32:05 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "Animal.hpp"
-#include "Brain.hpp"
 
 /**
  * Dog Class

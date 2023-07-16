@@ -6,14 +6,13 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 19:45:13 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/29 10:56:29 by bgales           ###   ########.fr       */
+/*   Updated: 2023/07/10 12:32:26 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
 #include "Animal.hpp"
-#include "Brain.hpp"
 
 /**
  * Cat Class

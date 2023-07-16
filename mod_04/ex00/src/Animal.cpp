@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 11:58:30 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/31 15:55:41 by bgales           ###   ########.fr       */
+/*   Updated: 2023/07/10 13:05:45 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 /**************************CONSTRUCTORS/DESTRUCTORS*****************************/
 
 Animal::Animal(){
-	std::cout << BR << "Animal" << R << " empty constructor called." << std::endl;
+	std::cout << BR << "Animal" << R << " default constructor called." << std::endl;
 }
 
 Animal::Animal(std::string type):_type(type){
-	std::cout << BR << "Animal" << R << " default constructor called." << std::endl;
+	std::cout << BR << "Animal" << R << " constructor called." << std::endl;
 }
 Animal::~Animal(){
 	std::cout << BR << "Animal" << R << " destructor called." << std::endl;

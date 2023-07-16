@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:29:47 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/29 14:20:30 by bgales           ###   ########.fr       */
+/*   Updated: 2023/07/10 13:37:20 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ class Brain {
 		 * @return A reference to the assigned Brain object.
 		 */
 		Brain& operator=(const Brain& other);
-
+	private:
 		/**
 		 * An array of strings representing ideas.
 		 */

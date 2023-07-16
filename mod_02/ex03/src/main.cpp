@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 14:55:19 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/25 11:19:57 by bgales           ###   ########.fr       */
+/*   Updated: 2023/07/02 11:42:21 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int main(){
 
 	draw_triangle(A, B, C,  Point (15, 15));
 
-	sleep (10);
+	sleep (3);
 		/***********************Right bottom corner***************************/
 
 	if ( bsp(A, B, C, Point (29, 1)) == true)
@@ -90,7 +90,7 @@ int main(){
 		std::cout << "H point is" << BOLDRED << " outside " << RESET
 		<< "the triangle\n" << std::endl;
 	draw_triangle(A, B, C,  Point (29, 1));
-	sleep (10);
+	sleep (3);
 
 /****************************Outside the triangle tests**********************************/
 
@@ -104,7 +104,7 @@ int main(){
 		std::cout << "H point is" << BOLDRED << " outside " << RESET
 		<< "the triangle\n" << std::endl;
 	draw_triangle(A, B, C,  Point (40, 40));
-	sleep (10);
+	sleep (3);
 
 		/***********************On the edge***************************/
 
@@ -116,5 +116,5 @@ int main(){
 		std::cout << "H point is" << BOLDRED << " outside " << RESET
 		<< "the triangle\n" << std::endl;
 	draw_triangle(A, B, C,  Point (10, 0));
-	sleep (10);
+	sleep (3);
 }

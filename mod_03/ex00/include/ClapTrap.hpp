@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:21:29 by bgales            #+#    #+#             */
-/*   Updated: 2023/05/26 18:41:01 by bgales           ###   ########.fr       */
+/*   Updated: 2023/07/08 10:16:05 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ public:
      */
     std::string getName();
 
-private:
+protected:
     std::string _name;          /*The name of the ClapTrap. */
     unsigned int _hitPoints;    /*The health points of the ClapTrap. */
     unsigned int _energyPoints; /*The energy points of the ClapTrap. */
