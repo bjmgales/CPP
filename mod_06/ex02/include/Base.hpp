@@ -6,11 +6,10 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 11:39:42 by bgales            #+#    #+#             */
-/*   Updated: 2023/06/08 12:02:03 by bgales           ###   ########.fr       */
+/*   Updated: 2023/09/29 16:59:09 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #pragma once
 
 class Base{

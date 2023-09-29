@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:00:28 by bgales            #+#    #+#             */
-/*   Updated: 2023/06/06 14:34:03 by bgales           ###   ########.fr       */
+/*   Updated: 2023/09/29 16:56:11 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #include <iostream>
 #pragma once
 #include "parsing.hpp"
+#include <cstdlib>
+#include <cerrno>
+#include <stdint.h>
 
 #define R   "\033[0m"
 #define BLACK   "\033[30m"      /* Black */
@@ -33,13 +36,19 @@
 #define BOLDCYAN    "\033[1m\033[36m"      /* Bold Cyan */
 #define BOLDWHITE   "\033[1m\033[37m"      /* Bold White */
 
+
 class ScalarConverter{
+	private:
+		ScalarConverter(){};
+		ScalarConverter(const ScalarConverter &){};
+		ScalarConverter& operator = (const ScalarConverter &);
+		~ScalarConverter(){};
 
 	public:
-
 		static void	convert(std::string rep);
 		static void fromInt(std::string rep);
 		static void fromChar(std::string rep);
 		static void fromFloat(std::string rep);
 		static void fromDouble(std::string rep);
+		static void specialCases(std::string rep);
 };

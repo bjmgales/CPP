@@ -65,6 +65,21 @@
 		"unordered_map": "cpp",
 		"utility": "cpp",
 		"vector": "cpp",
-		"*.tpp": "cpp"
+		"*.tpp": "cpp",
+		"filesystem": "cpp",
+		"__bits": "cpp",
+		"__verbose_abort": "cpp",
+		"clocale": "cpp",
+		"variant": "cpp",
+		"compare": "cpp",
+		"concepts": "cpp",
+		"__tree": "cpp",
+		"map": "cpp",
+		"set": "cpp",
+		"regex": "cpp",
+		"unordered_set": "cpp",
+		"__memory": "cpp",
+		"random": "cpp",
+		"numeric": "cpp"
 	}
 }

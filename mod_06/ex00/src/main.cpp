@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:42:09 by bgales            #+#    #+#             */
-/*   Updated: 2023/06/06 10:23:09 by bgales           ###   ########.fr       */
+/*   Updated: 2023/09/28 14:15:56 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ int main(int argc, char **argv){
 		std::cout << "Expected : \"./program_name arg\"" << std::endl;
 		return (1);
 	}
-	ScalarConverter().convert(argv[1]);
+	ScalarConverter::convert(argv[1]);
 }

@@ -1,8 +1,8 @@
 NAME	:= ScalarConvertor
 
 
-CC := c++
-CFLAGS := -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+CC := g++ -Wall -Wextra -Werror -std=c++98 -pedantic
+CFLAGS :=
 AR := ar
 RM := rm -f
 MKDIR := mkdir -m 777 -p
@@ -41,7 +41,7 @@ all: $(NAME)
 bin/%.o: src/%.cpp | bin
 	@echo \
 	$(WHITE)$(ITALIC)"Compiling $<"$(EOC)
-	@$(CC) $(HFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(HFLAGS) -c $< -o $@
 
 bin:
 	@$(MKDIR)  $(OBJ_DIRS)

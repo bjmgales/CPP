@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 14:02:37 by bgales            #+#    #+#             */
-/*   Updated: 2023/07/12 13:29:01 by bgales           ###   ########.fr       */
+/*   Updated: 2023/08/28 11:11:50 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ public:
 	Array(const Array&);
 	Array& operator =(const Array &);
 
-	T getSize() const;
+	unsigned int getSize() const;
 	T& operator[](unsigned int index);
 	class WrongIndex: public std::exception{
 		public:
@@ -64,12 +64,17 @@ Array<T>::Array(unsigned int n):_size(n){
 	std::cout << "Array default constructor called" << std::endl;
 	if (n != 0)
 		_tab = new T[n];
-	for (int i = 0; i < n; i++)
-		_tab[i] = NULL;
 }
 
 template<typename T>
-Array<T>::Array(const Array<T>& other):_size(other._size), _tab(other._tab){
+Array<T>::Array(const Array<T>& other):_size(other._size){
+	if (this != &other)
+	{
+		_size = other._size;
+		this->_tab = new T[_size];
+		for (int i = 0; i < _size; i++)
+			this->_tab[i] = other._tab[i];
+	}
 }
 
 template<typename T>
@@ -83,7 +88,7 @@ Array<T>& Array<T>::operator =(const Array<T>&other){
 	}
 }
 template<typename T>
-T Array<T>::getSize() const{
+unsigned int Array<T>::getSize() const{
 	return (_size);
 }
 
@@ -115,6 +120,7 @@ T& Array<T>::operator [](unsigned int index){
 template<typename T>
 Array<T>::~Array(){
 	std::cout << "Array destructor called" << std::endl;
-	delete [] _tab;
+	if (_size)
+		delete [] _tab;
 }
 

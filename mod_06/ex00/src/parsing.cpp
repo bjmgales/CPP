@@ -6,12 +6,14 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 11:00:44 by bgales            #+#    #+#             */
-/*   Updated: 2023/06/06 13:15:45 by bgales           ###   ########.fr       */
+/*   Updated: 2023/09/29 16:55:44 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.hpp"
 #include <limits>
+#include <stdint.h>
+
 
 
 
@@ -24,6 +26,7 @@ int countChar(char toCount, std::string str){
 	}
 	return (i);
 }
+
 int isNum(std::string rep){
 
 	size_t pos;
@@ -43,8 +46,7 @@ int isNum(std::string rep){
 		return('d');
 	else if ((pos = rep.find(".")) == std::string::npos)
 		return ('i');
-	else
-		return (0);
+	return (0);
 }
 
 bool isChar(std::string rep){
@@ -64,6 +66,12 @@ bool isChar(std::string rep){
 }
 
 int typeFinder(std::string rep){
+	std::string levels[8] = {"+inf", "-inf", "inf", "+inff", "inff", "-inff", "nan", "nanf"};
+	for (int i = 0; !levels[i].empty();){
+		if (rep == levels[i])
+			return ('s');
+		i++;
+	}
 	if (isNum(rep))
 		return (isNum(rep));
 	else if (isChar(rep) == true)

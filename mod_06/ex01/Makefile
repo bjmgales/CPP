@@ -41,7 +41,7 @@ all: $(NAME)
 bin/%.o: src/%.cpp | bin
 	@echo \
 	$(WHITE)$(ITALIC)"Compiling $<"$(EOC)
-	@$(CC) $(HFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(HFLAGS) -c $< -o $@
 
 bin:
 	@$(MKDIR)  $(OBJ_DIRS)

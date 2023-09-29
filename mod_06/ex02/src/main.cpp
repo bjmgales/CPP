@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 11:56:57 by bgales            #+#    #+#             */
-/*   Updated: 2023/06/08 13:40:47 by bgales           ###   ########.fr       */
+/*   Updated: 2023/09/29 16:58:56 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "C.hpp"
 #include <ctime>
 #include <unistd.h>
+#include <cstdlib>
 
 Base *generate(){
 
@@ -24,7 +25,6 @@ Base *generate(){
 
 	srand(time(NULL));
 	randNbr = rand() % 3;
-	// std::cout << "randNbr = " << randNbr << std::endl;
 
 	if (randNbr == 0)
 		return (new A());
@@ -41,49 +41,63 @@ void identify(Base *p){
 	B* b = dynamic_cast<B*>(p);
 	C* c = dynamic_cast<C*>(p);
 	if (a != nullptr)
-		std::cout << "Base object was instanciated through A child class" << std::endl;
-	if (b != nullptr)
-		std::cout << "Base object was instanciated through B child class" << std::endl;
-	if (c != nullptr)
-		std::cout << "Base object was instanciated through C child class" << std::endl;
+		std::cout << "Pointer => Base object was instanciated through A child class" << std::endl;
+	else if (b != nullptr)
+		std::cout << "Pointer => Base object was instanciated through B child class" << std::endl;
+	else if (c != nullptr)
+		std::cout << "Pointer => Base object was instanciated through C child class" << std::endl;
+	else
+		std::cout << "No match for this class."<< std::endl;
 }
 
 void identify(Base &p){
-	A *a = dynamic_cast<A*>(&p);
-	B *b = dynamic_cast<B*>(&p);
-	C *c = dynamic_cast<C*>(&p);
-	if (a != nullptr)
-		std::cout << "Base object was instanciated through A child class" << std::endl;
-	if (b != nullptr)
-		std::cout << "Base object was instanciated through B child class" << std::endl;
-	if (c != nullptr)
-		std::cout << "Base object was instanciated through C child class" << std::endl;
-}
-int main(){
+	try{
+		A &a = dynamic_cast<A&>(p);
+		std::cout << "Reference => Base object was instanciated through A child class" << std::endl;
+	}
+	catch(std::bad_cast &e){
+		try{
+			B &b = dynamic_cast<B&>(p);
+			std::cout << "Reference => Base object was instanciated through B child class" << std::endl;
+		}
+		catch(std::bad_cast &e){
+			try{
+				C &c = dynamic_cast<C&>(p);
+				std::cout << "Reference => Base object was instanciated through C child class" << std::endl;
+			}
+			catch(std::bad_cast &e){
+				std::cout << e.what() << std::endl;
+			}
+		}
 
-	/***********************************Pointers***********************************/
+	}
+}
+
+int main(){
 
 	Base *one = generate();
 	identify(one);
+	identify(*one);
+	std::cout << std::endl;
 	sleep(rand() % 3);
+	delete one;
 
 	Base *two = generate();
 	identify(two);
+	identify(*two);
+	std::cout << std::endl;
 	sleep(rand() % 3);
+	delete two;
 
 	Base *three = generate();
 	identify(three);
+	identify(*three);
+	std::cout << std::endl;
 	sleep(rand() % 3);
+	delete three;
 
-	/***********************************References***********************************/
-
-	Base &one_ref = *generate();
-	identify(one_ref);
-	sleep(rand() % 3);
-	Base &two_ref = *generate();
-	identify(two_ref);
-	sleep(rand() % 3);
-	Base &three_ref = *generate();
-	identify(three_ref);
-	sleep(rand() % 3);
+	return 0;
 }
+
+// delete nullptr c++11
+// delete bad_cast no type info forbidden

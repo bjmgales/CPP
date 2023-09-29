@@ -6,7 +6,7 @@
 /*   By: bgales <bgales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:17:07 by bgales            #+#    #+#             */
-/*   Updated: 2023/06/06 13:20:36 by bgales           ###   ########.fr       */
+/*   Updated: 2023/09/29 13:31:16 by bgales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@
 #include <float.h>
 
 void 	ScalarConverter::fromInt(std::string rep){
+	errno = 0;
 	try{
-		int x = std::stoi(rep);
+		long x = std::strtol(rep.c_str(), NULL, 10);
+		if ((errno == ERANGE && (x >= INT32_MAX || x <= INT32_MIN)) || (errno != 0 && x == 0))
+			throw std::runtime_error("Overflow or underflow detected!");
 		if (x < 32 || x > 126)
 			std::cout << "char: Non displayable" << std::endl;
 		else
@@ -28,8 +31,8 @@ void 	ScalarConverter::fromInt(std::string rep){
 		std::cout << "double: " << std::fixed << std::setprecision(1)
 				<< static_cast<double>(x) << std::endl;
 	}
-	catch (const std::out_of_range){
-		        std::cout << "Error: int format input: out of range" << std::endl;
+	catch (const std::exception &e){
+		std::cout << e.what() << std::endl;
 
 	}
 }
@@ -45,9 +48,7 @@ void 	ScalarConverter::fromChar(std::string rep){
 }
 
 void 	ScalarConverter::fromFloat(std::string rep){
-	std::cout << "Hello From Float\n" << std::endl;
-	try{
-		float f = std::stof(rep);
+	float f = std::strtod(rep.c_str(), NULL);
 		if (static_cast<int>(f) < 32 || static_cast<int>(f) > 126)
 			std::cout << "char: Non displayable" << std::endl;
 		else
@@ -60,62 +61,47 @@ void 	ScalarConverter::fromFloat(std::string rep){
 				<< f  << "f" << std::endl;
 		std::cout << "double: " << std::fixed <<
 			static_cast<double>(f) << std::endl;
-	}
-	catch(const std::out_of_range){
-		if (rep[0] != '-'){
-			std::cout << "char: Not Displayable" << std::endl;
-			std::cout << "int: impossible"<< std::endl;
-			std::cout << "float: +inff" << std::endl;
-			std::cout << "double: +inf" << std::endl;
-		}
-		else
-		{
-			std::cout << "char: Not Displayable" << std::endl;
-			std::cout << "int: impossible"<< std::endl;
-			std::cout << "float: -inff" << std::endl;
-			std::cout << "double: -inf" << std::endl;
-		}
-	}
 }
 
 void 	ScalarConverter::fromDouble(std::string rep){
-	std::cout << "Hello From Double" << std::endl;
-	try{
-		double d = std::stod(rep);
-		if (static_cast<int>(d) < 32 || static_cast<int>(d) > 126)
-			std::cout << "char: Non displayable" << std::endl;
-		else
-			std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
-		if (d > static_cast<double>(INT_MAX) || d < static_cast<double>(INT_MIN))
-			std::cout << "int: Non displayable"<< std::endl;
-		else
-			std::cout << "int: " << static_cast<int>(d) << std::endl;
-		std::cout << "float: " << std::fixed << std::setprecision(1)
-				<< 	static_cast<float>(d)  << "f" << std::endl;
-		std::cout << "double: " << std::fixed <<
-			(d) << std::endl;
-	}
-	catch(const std::out_of_range){
-		if (rep[0] != '-'){
-			std::cout << "char: Not Displayable" << std::endl;
-			std::cout << "int: impossible"<< std::endl;
-			std::cout << "float: +inff" << std::endl;
-			std::cout << "double: +inf" << std::endl;
-		}
-		else
-		{
-			std::cout << "char: Not Displayable" << std::endl;
-			std::cout << "int: impossible"<< std::endl;
-			std::cout << "float: -inff" << std::endl;
-			std::cout << "double: -inf" << std::endl;
-		}
-	}
+	double d = std::strtod(rep.c_str(), NULL);
+	if (static_cast<int>(d) < 32 || static_cast<int>(d) > 126)
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
+	if (d > static_cast<double>(INT_MAX) || d < static_cast<double>(INT_MIN))
+		std::cout << "int: Non displayable"<< std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(d) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1)
+			<< 	static_cast<float>(d)  << "f" << std::endl;
+	std::cout << "double: " << std::fixed <<
+		(d) << std::endl;
 }
 
-void	ScalarConverter::convert(std::string rep){
+void	ScalarConverter::specialCases(std::string rep){
+	std::string levels[8] = {"+inf", "inf", "+inff", "inff", "-inf", "-inff", "nan", "nanf"};
+	for (int i = 0; i < 4;){
+		if (levels[i] == rep){
+			std::cout << "char: impossible \nint: impossible\nfloat: inff\ndouble: inf" << std::endl;
+			return;
+		}
+		i++;
+	}
+	for (int i = 4; i < 6;){
+		if (levels[i] == rep){
+			std::cout << "char: impossible \nint: impossible\nfloat: -inff\ndouble: -inf" << std::endl;
+			return;
+		}
+		i++;
+	}
+	std::cout << "char: impossible \nint: impossible\nfloat: nanf\ndouble: nan" << std::endl;
 
-	const char levels[] = {'c', 'i', 'd', 'f', '\0'};
-	void	(*f_ptr[4])(std::string);
+
+}
+void	ScalarConverter::convert(std::string rep){
+	const char levels[] = {'c', 'i', 'd', 'f', 's', '\0'};
+	void	(*f_ptr[5])(std::string);
 	if (rep.empty())
 		return;
 	char type = typeFinder(rep);
@@ -123,17 +109,11 @@ void	ScalarConverter::convert(std::string rep){
 	f_ptr[1]=&ScalarConverter::fromInt;
 	f_ptr[2]=&ScalarConverter::fromDouble;
 	f_ptr[3]=&ScalarConverter::fromFloat;
-
+	f_ptr[4]=&ScalarConverter::specialCases;
 	for (int i = 0; levels[i]; i++){
 		if (levels[i] == type){
 			f_ptr[i](rep);
 			return;
 		}
 	}
-		// std::cout << "char: impossible" << std::endl;
-		// std::cout << "int: impossible"<< std::endl;
-		// std::cout << "float: nanf" << std::endl;
-		// std::cout << "double: nan" << std::endl;
-
-
 }
