@@ -47,7 +47,7 @@ void get_values(std::string line, int *year, int *month, int *day, float *value,
 
 bool parse_values(int year, int month, int day, float value, std::string txtorcsv){
     
-    if (!day || !month){
+    if (!day || !month || month > 12 || day > 31){
         return false;
     }
 	if (((month < 8 && (month % 2) == 0 && day > 30) || (month >= 8 && month % 2 && day > 30)))

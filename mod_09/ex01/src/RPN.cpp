@@ -59,6 +59,10 @@ void stack_calc(char *argv, std::stack<int> *myStack){
 				isZero = false;
 			tmp = myStack->top();
 			myStack->pop();
+			if (myStack->empty()){
+				std::cerr << "Error: RPN syntax error" << std::endl;
+				return;
+			}
 			myStack->top() = doCalc(myStack->top(), tmp, *argv);
 			break;
 		}
