@@ -43,6 +43,7 @@ int doCalc(int n1, int n2, int token){
 void stack_calc(char *argv, std::stack<int> *myStack){
 
 	int tmp;
+	bool isZero = false;
 
 	if (argv && *argv != ' ' && (*argv < '0' || *argv > '9')){
 		std::cout << "Error."<< std::endl;
@@ -50,12 +51,20 @@ void stack_calc(char *argv, std::stack<int> *myStack){
 	}
 	while(argv && *argv){
 		if (is_operator(*argv) == true){
+			if (*argv == '/' && isZero == true){
+				std::cerr << "Error: Cannot divide by 0" << std::endl;
+				return;
+			}
+			else
+				isZero = false;
 			tmp = myStack->top();
 			myStack->pop();
 			myStack->top() = doCalc(myStack->top(), tmp, *argv);
 			break;
 		}
 		if (*argv >= '0' && *argv <= '9'){
+			if (*argv == '0')
+				isZero = true;
 			myStack->push(*argv - '0');
 			argv++;
 		}

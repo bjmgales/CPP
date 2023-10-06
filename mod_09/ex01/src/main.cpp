@@ -60,7 +60,6 @@ int main(int argc, char **argv)
 		return (-1);
 
 	stack_calc(argv[1], &myStack);
-	// split_str(calc, array);
 }
 
 

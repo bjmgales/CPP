@@ -139,7 +139,6 @@ void deque_start(std::string *sArray){
 	gettimeofday(&tp, NULL);
 	long int start = 1000000 * tp.tv_sec + tp.tv_usec;
 	std::deque<int> dArray;
-	time_t time = std::time(nullptr);
 
 	while (!sArray->empty()){
 		dArray.push_back(static_cast<int>(std::strtod(sArray->c_str(), NULL)));
@@ -149,9 +148,8 @@ void deque_start(std::string *sArray){
 	deque_sort(dArray);
 	gettimeofday(&tp, NULL);
 	long int end = 1000000 * tp.tv_sec + tp.tv_usec;
-	double ret = end - start;
 	std::cout << "After: ";
-	for (int i = 0; i < dArray.size(); i++){
+	for (unsigned int i = 0; i < dArray.size(); i++){
 		std::cout << dArray[i] << " ";
 	}
 	std::cout << std::endl;

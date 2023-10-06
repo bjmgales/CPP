@@ -1,8 +1,8 @@
 NAME	:= PmergeMe
 
 
-CC := c++
-CFLAGS := -Wall -Wextra -Werror -std=c++98
+CC := c++ -Wall -Wextra -Werror -std=c++98
+CFLAGS := 
 DEBUG := -g -fsanitize=address
 AR := ar
 RM := rm -f

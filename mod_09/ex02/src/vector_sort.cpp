@@ -115,7 +115,6 @@ void vector_sort(std::vector<int> &vArray){
 
 void no_duplicate(std::vector<int> &vArray){
 	std::vector<int>::iterator it_b = vArray.begin();
-	unsigned int size = vArray.size();
 	while (it_b != vArray.end()){
 		std::vector<int>::iterator it = it_b + 1;
 		while (it != vArray.end()){
@@ -135,7 +134,6 @@ void vector_start(std::string *sArray){
 	gettimeofday(&tp, NULL);
 	long int start = 1000000 * tp.tv_sec + tp.tv_usec;
 	std::vector<int> vArray;
-	time_t time = std::time(nullptr);
 
 	while (!sArray->empty()){
 		vArray.push_back(static_cast<int>(std::strtod(sArray->c_str(), NULL)));
@@ -145,7 +143,6 @@ void vector_start(std::string *sArray){
 	vector_sort(vArray);
 	gettimeofday(&tp, NULL);
 	long int end = 1000000 * tp.tv_sec + tp.tv_usec;
-	double ret = end - start;
 	std::cout << GREEN << "Time to process a range of " << vArray.size() <<
 	" elements with" << MAGENTA << " std::vector: " << std::fixed << std::setprecision(5) <<  RESET << end - start << "µs" << std::endl;
 }

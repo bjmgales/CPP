@@ -28,6 +28,7 @@ bool parse_args(char **argv){
 
 int main(int argc, char **argv){
 	std::string array[argc];
+	
 	if (argc < 3){
 		std::cout << "Error: expected input: \"./program_name 1 2 ...\""<< std::endl;
 		return (-1);

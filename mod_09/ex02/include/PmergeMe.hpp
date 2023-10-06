@@ -35,6 +35,8 @@
 #include <sys/time.h>
 #include <ctime>
 #include <deque>
+#include <vector>
+#include <cstdlib>
 
 void deque_start(std::string *array);
 void vector_start(std::string *array);

@@ -1,8 +1,8 @@
 NAME	:= RPN
 
 
-CC := c++
-CFLAGS := -Wall -Wextra -Werror -std=c++98 
+CC := c++ -Wall -Wextra -Werror -std=c++98 
+CFLAGS := 
 AR := ar
 RM := rm -f
 MKDIR := mkdir -m 777 -p
